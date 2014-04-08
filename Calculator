@@ -1,0 +1,36 @@
+import java.awt.*; 
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Calculator_GUI extends JFrame{
+
+  private JButton jbtone = new JButton("1");
+  private JButton jbttwo = new JButton("2");
+  private JButton jbtthree = new JButton("3");
+  private JButton jbtfour = new JButton("4");
+  private JButton jbtfive = new JButton("5");
+  private JButton jbtsix = new JButton("6");
+  private JButton jbtseven = new JButton("7");
+  private JButton jbteight = new JButton("8");
+  private JButton jbtnine = new JButton("9");
+  private JButton jbtzero = new JButton("0");
+  private JButton jbtplus = new JButton("+");
+  private JButton jbttime = new JButton("X");
+  private JButton jbtdivide = new JButton("÷");
+  private JButton jbtroot = new JButton("root");
+  private JButton jbtsquare = new JButton("square");
+  private JButton jbtsin = new JButton("sin");
+  private JButton jbtcos = new JButton("cos");
+  private JButton jbttan = new JButton("tan");
+  private JButton jbtdelete = new JButton("C");
+  private JButton jbtcalculate = new JButton("=");
+
+  
+  public Calculator_GUI(){
+    JPanel p1 = new JPanel(new GridLayout(4,5));
+    
+    
+    
+  }
+
+}
