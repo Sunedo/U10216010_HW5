@@ -4,33 +4,80 @@ import javax.swing.*;
 
 public class Calculator_GUI extends JFrame{
 
-  private JButton jbtone = new JButton("1");
-  private JButton jbttwo = new JButton("2");
-  private JButton jbtthree = new JButton("3");
-  private JButton jbtfour = new JButton("4");
-  private JButton jbtfive = new JButton("5");
-  private JButton jbtsix = new JButton("6");
-  private JButton jbtseven = new JButton("7");
-  private JButton jbteight = new JButton("8");
-  private JButton jbtnine = new JButton("9");
-  private JButton jbtzero = new JButton("0");
-  private JButton jbtplus = new JButton("+");
-  private JButton jbttime = new JButton("X");
-  private JButton jbtdivide = new JButton("÷");
-  private JButton jbtroot = new JButton("root");
-  private JButton jbtsquare = new JButton("square");
-  private JButton jbtsin = new JButton("sin");
-  private JButton jbtcos = new JButton("cos");
-  private JButton jbttan = new JButton("tan");
-  private JButton jbtdelete = new JButton("C");
-  private JButton jbtcalculate = new JButton("=");
+	private JTextField jtfresult = new JTextField();
+	private JButton jbtone = new JButton("1");
+	private JButton jbttwo = new JButton("2");
+	private JButton jbtthree = new JButton("3");
+	private JButton jbtfour = new JButton("4");
+	private JButton jbtfive = new JButton("5");
+	private JButton jbtsix = new JButton("6");
+	private JButton jbtseven = new JButton("7");
+	private JButton jbteight = new JButton("8");
+	private JButton jbtnine = new JButton("9");
+	private JButton jbtzero = new JButton("0");
+	private JButton jbtplus = new JButton("+");
+	private JButton jbttime = new JButton("X");
+	private JButton jbtminus = new JButton("-");
+	private JButton jbtdivide = new JButton("/");
+	private JButton jbtroot = new JButton("root");
+	private JButton jbtsquare = new JButton("square");
+	private JButton jbtsin = new JButton("sin");
+	private JButton jbtcos = new JButton("cos");
+	private JButton jbttan = new JButton("tan");
+	private JButton jbtdelete = new JButton("C");
+	private JButton jbtcalculate = new JButton("=");
+	private JButton jbtdecimal = new JButton(".");
 
   
-  public Calculator_GUI(){
-    JPanel p1 = new JPanel(new GridLayout(4,5));
+	public Calculator_GUI(){
+		
+		JPanel p1 = new JPanel(new GridLayout(4,5,3,3));
+		p1.add(jbtplus);
+		p1.add(jbtone);
+		p1.add(jbttwo);
+		p1.add(jbtthree);
+		p1.add(jbtsin);
+		p1.add(jbtminus);
+		p1.add(jbtfour);
+		p1.add(jbtfive);
+		p1.add(jbtsix);
+		p1.add(jbtcos);
+		p1.add(jbttime);
+		p1.add(jbtseven);
+		p1.add(jbteight);
+		p1.add(jbtnine);
+		p1.add(jbttan);
+		p1.add(jbtdivide);
+		p1.add(jbtdecimal);
+		p1.add(jbtzero);
+		p1.add(jbtroot);
+		p1.add(jbtsquare);
+		
     
-    
-    
-  }
+		JPanel p2 = new JPanel(new GridLayout(1,2,3,0));
 
+		p2.add(jbtdelete);
+		p2.add(jbtcalculate);
+		
+		JPanel p3 = new JPanel(new GridLayout(1,1));
+
+		p3.add(jtfresult);
+		
+		add(p1, BorderLayout.CENTER);
+		add(p2, BorderLayout.SOUTH);
+		add(p3, BorderLayout.NORTH);
+
+		
+    
+	}
+	
+	public static void main(String[] args){
+		Calculator_GUI gui = new Calculator_GUI();
+		gui.pack();
+		gui.setSize(400, 500);
+		gui.setTitle("Calculator");
+		gui.setLocationRelativeTo(null);
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gui.setVisible(true);
+	}
 }
