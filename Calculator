@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Calculator_GUI extends JFrame{
 
-	private JTextField jtfresult = new JTextField();
+	private JLabel jlresult = new JLabel("0", JLabel.RIGHT);
 	private JButton jbtone = new JButton("1");
 	private JButton jbttwo = new JButton("2");
 	private JButton jbtthree = new JButton("3");
@@ -60,16 +60,138 @@ public class Calculator_GUI extends JFrame{
 		p2.add(jbtcalculate);
 		
 		JPanel p3 = new JPanel(new GridLayout(1,1));
-
-		p3.add(jtfresult);
+		p3.add(jlresult);
+		
 		
 		add(p1, BorderLayout.CENTER);
 		add(p2, BorderLayout.SOUTH);
 		add(p3, BorderLayout.NORTH);
 
 		
-    
+		
+		ButtonListener listener = new ButtonListener();
+		jbtplus.addActionListener(listener);
+		jbtone.addActionListener(listener);
+		jbttwo.addActionListener(listener);
+		jbtthree.addActionListener(listener);
+		jbtsin.addActionListener(listener);
+		jbtminus.addActionListener(listener);
+		jbtfour.addActionListener(listener);
+		jbtfive.addActionListener(listener);
+		jbtsix.addActionListener(listener);
+		jbtcos.addActionListener(listener);
+		jbttime.addActionListener(listener);
+		jbtseven.addActionListener(listener);
+		jbteight.addActionListener(listener);
+		jbtnine.addActionListener(listener);
+		jbttan.addActionListener(listener);
+		jbtdivide.addActionListener(listener);
+		jbtdecimal.addActionListener(listener);
+		jbtzero.addActionListener(listener);
+		jbtroot.addActionListener(listener);
+		jbtsquare.addActionListener(listener);
+		jbtdelete.addActionListener(listener);
+		jbtcalculate.addActionListener(listener);
+		
 	}
+	
+	private class ButtonListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent ev){
+			if(ev.getSource() == jbtplus){
+				;
+			}			
+			
+			else if(ev.getSource() == jbtone){
+				;
+			}
+			
+			else if(ev.getSource() == jbttwo){
+				;
+			}
+			
+			else if(ev.getSource() == jbtthree){
+				;
+			}
+			
+			else if(ev.getSource() == jbtfour){
+				;
+			}
+			
+			else if(ev.getSource() == jbtfive){
+				;
+			}
+			
+			else if(ev.getSource() == jbtsix){
+				;
+			}
+			
+			else if(ev.getSource() == jbtseven){
+				;
+			}
+			
+			else if(ev.getSource() == jbteight){
+				;
+			}
+			
+			else if(ev.getSource() == jbtnine){
+				;
+			}
+			
+			else if(ev.getSource() == jbtzero){
+				;
+			}
+			
+			else if(ev.getSource() == jbtminus){
+				;
+			}
+			
+			else if(ev.getSource() == jbttime){
+				;
+			}
+			
+			else if(ev.getSource() == jbtdivide){
+				;
+			}
+			
+			else if(ev.getSource() == jbtsin){
+				;
+			}
+			
+			else if(ev.getSource() == jbtcos){
+				;
+			}
+			
+			else if(ev.getSource() == jbttan){
+				;
+			}
+			
+			else if(ev.getSource() == jbtdecimal){
+				;
+			}
+			
+			else if(ev.getSource() == jbtroot){
+				;
+			}
+			
+			else if(ev.getSource() == jbtsquare){
+				;
+			}	
+			
+			else if(ev.getSource() == jbtdelete){
+				;
+			}
+			
+			else if(ev.getSource() == jbtcalculate){
+				;
+			}
+		
+		}
+    }
+
+	
+	
+	
 	
 	public static void main(String[] args){
 		Calculator_GUI gui = new Calculator_GUI();
