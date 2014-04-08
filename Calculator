@@ -3,7 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Calculator_GUI extends JFrame{
-
+	
 	private JLabel jlresult = new JLabel("0", JLabel.RIGHT);
 	private JButton jbtone = new JButton("1");
 	private JButton jbttwo = new JButton("2");
@@ -193,13 +193,69 @@ public class Calculator_GUI extends JFrame{
 	
 	
 	
-	public static void main(String[] args){
-		Calculator_GUI gui = new Calculator_GUI();
-		gui.pack();
-		gui.setSize(400, 500);
-		gui.setTitle("Calculator");
-		gui.setLocationRelativeTo(null);
-		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		gui.setVisible(true);
+	public static void main(String[] args){		
+		CalculatorPassword  pw = new CalculatorPassword ();
+		pw.pack();		
+		pw.setSize(400, 300);
+		pw.setTitle("CalculatorPassword");
+		pw.setLocationRelativeTo(null);
+		pw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pw.setVisible(true);
+		pw.getlog();
+			
+		while(pw.getlog() == true){	
+			pw.setVisible(false);
+			Calculator_GUI gui = new Calculator_GUI();
+			gui.pack();
+			gui.setSize(400, 500);
+			gui.setTitle("Calculator");
+			gui.setLocationRelativeTo(null);
+			gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			gui.setVisible(true);
+		}
 	}
 }
+
+
+	class CalculatorPassword extends JFrame { 
+		private JPasswordField jpfpassword = new JPasswordField(4);
+		private JButton jbtlogin = new JButton("Login");
+		private JLabel status = new JLabel("");
+		public boolean log = false;
+		
+		public CalculatorPassword(){
+			JPanel p4 = new JPanel(new GridLayout(2,1));
+			p4.add(status);
+			p4.add(jpfpassword);
+			
+			JPanel p5 = new JPanel(new GridLayout(1,1));
+			p5.add(jbtlogin);
+			
+			add(p4, BorderLayout.CENTER);
+			add(p5, BorderLayout.SOUTH);
+			
+			jbtlogin.addActionListener(new ButtonListener());
+			
+		}
+		private class ButtonListener implements ActionListener{
+			@Override
+			public void actionPerformed(ActionEvent ek){
+				char[] password=jpfpassword.getPassword();
+				String pw = new String(password);
+				String truepassword = "0000";
+				if(pw.equals(truepassword)){
+					status.setText("Your password is true.");
+					log = true;
+				}
+				else {
+					status.setText("Your password is wrong.");
+				}
+				
+			}
+		}
+		
+		boolean getlog(){
+			return log;
+		}
+		
+	}	
