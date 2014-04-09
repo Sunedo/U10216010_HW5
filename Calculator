@@ -2,7 +2,66 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Calculator_GUI extends JFrame{
+
+
+	public class CalculatorPassword extends JFrame { 
+		private JPasswordField jpfpassword = new JPasswordField(4);
+		private JButton jbtlogin = new JButton("Login");
+		private JLabel status = new JLabel("");
+		public boolean log = false;
+		
+		public CalculatorPassword(){
+			JPanel p4 = new JPanel(new GridLayout(2,1));
+			p4.add(status);
+			p4.add(jpfpassword);
+			
+			JPanel p5 = new JPanel(new GridLayout(1,1));
+			p5.add(jbtlogin);
+			
+			add(p4, BorderLayout.CENTER);
+			add(p5, BorderLayout.SOUTH);
+			
+			jbtlogin.addActionListener(new ButtonListener());
+			
+		}
+		private class ButtonListener implements ActionListener{
+			@Override
+			public void actionPerformed(ActionEvent ek){
+				char[] password = jpfpassword.getPassword();
+				String pw = new String(password);
+				String truepassword = "0000";
+				if(pw.equals(truepassword)){
+					status.setText("Your password is true.");
+					Calculator_GUI gui = new Calculator_GUI();
+					gui.pack();
+					gui.setSize(400, 500);
+					gui.setTitle("Calculator");
+					gui.setLocationRelativeTo(null);
+					gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					gui.setVisible(true);
+				}
+				else {
+					status.setText("Your password is wrong.");
+				}
+				
+			}
+		}
+	
+	
+	
+	public static void main(String[] args){		
+		CalculatorPassword  pw = new CalculatorPassword ();
+		pw.pack();		
+		pw.setSize(400, 300);
+		pw.setTitle("CalculatorPassword");
+		pw.setLocationRelativeTo(null);
+		pw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pw.setVisible(true);
+		
+	}
+}
+
+class Calculator_GUI extends JFrame{
 	
 	private JLabel jlresult = new JLabel("0", JLabel.RIGHT);
 	private JButton jbtone = new JButton("1");
@@ -98,8 +157,16 @@ public class Calculator_GUI extends JFrame{
 	private class ButtonListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent ev){
+			int static = 0;
+			double number = 0;
+			double result = 0;
+			
+			
+			
 			if(ev.getSource() == jbtplus){
-				;
+				number = Double.parseDouble(jlresult.getText());
+				static = 1;
+				jlresult.setText("0");
 			}			
 			
 			else if(ev.getSource() == jbtone){
@@ -143,15 +210,21 @@ public class Calculator_GUI extends JFrame{
 			}
 			
 			else if(ev.getSource() == jbtminus){
-				;
+				number = Double.parseDouble(jlresult.getText());
+				static = 2;
+				jlresult.setText("0");
 			}
 			
 			else if(ev.getSource() == jbttime){
-				;
+				number = Double.parseDouble(jlresult.getText());
+				static = 3;
+				jlresult.setText("0");
 			}
 			
 			else if(ev.getSource() == jbtdivide){
-				;
+				number = Double.parseDouble(jlresult.getText());
+				static = 4;
+				jlresult.setText("0");
 			}
 			
 			else if(ev.getSource() == jbtsin){
@@ -187,75 +260,5 @@ public class Calculator_GUI extends JFrame{
 			}
 		
 		}
-    }
-
-	
-	
-	
-	
-	public static void main(String[] args){		
-		CalculatorPassword  pw = new CalculatorPassword ();
-		pw.pack();		
-		pw.setSize(400, 300);
-		pw.setTitle("CalculatorPassword");
-		pw.setLocationRelativeTo(null);
-		pw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pw.setVisible(true);
-		pw.getlog();
-			
-		while(pw.getlog() == true){	
-			pw.setVisible(false);
-			Calculator_GUI gui = new Calculator_GUI();
-			gui.pack();
-			gui.setSize(400, 500);
-			gui.setTitle("Calculator");
-			gui.setLocationRelativeTo(null);
-			gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			gui.setVisible(true);
-		}
-	}
+    }	
 }
-
-
-	class CalculatorPassword extends JFrame { 
-		private JPasswordField jpfpassword = new JPasswordField(4);
-		private JButton jbtlogin = new JButton("Login");
-		private JLabel status = new JLabel("");
-		public boolean log = false;
-		
-		public CalculatorPassword(){
-			JPanel p4 = new JPanel(new GridLayout(2,1));
-			p4.add(status);
-			p4.add(jpfpassword);
-			
-			JPanel p5 = new JPanel(new GridLayout(1,1));
-			p5.add(jbtlogin);
-			
-			add(p4, BorderLayout.CENTER);
-			add(p5, BorderLayout.SOUTH);
-			
-			jbtlogin.addActionListener(new ButtonListener());
-			
-		}
-		private class ButtonListener implements ActionListener{
-			@Override
-			public void actionPerformed(ActionEvent ek){
-				char[] password=jpfpassword.getPassword();
-				String pw = new String(password);
-				String truepassword = "0000";
-				if(pw.equals(truepassword)){
-					status.setText("Your password is true.");
-					log = true;
-				}
-				else {
-					status.setText("Your password is wrong.");
-				}
-				
-			}
-		}
-		
-		boolean getlog(){
-			return log;
-		}
-		
-	}	
