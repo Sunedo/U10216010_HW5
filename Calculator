@@ -178,6 +178,7 @@ class Calculator_GUI extends JFrame{
 					jlresult.setText("0");
 				}
 				decimalcheck = false;
+				numbercheck = 0;
 			}			
 			
 			else if(ev.getSource() == jbtone){
@@ -353,6 +354,7 @@ class Calculator_GUI extends JFrame{
 					jlresult.setText("0");
 				}
 				decimalcheck = false;
+				numbercheck = 0;
 			}
 			
 			else if(ev.getSource() == jbttime){
@@ -367,6 +369,7 @@ class Calculator_GUI extends JFrame{
 					jlresult.setText("0");
 				}
 				decimalcheck = false;
+				numbercheck = 0;
 			}
 			
 			else if(ev.getSource() == jbtdivide){
@@ -381,6 +384,7 @@ class Calculator_GUI extends JFrame{
 					jlresult.setText("0");
 				}
 				decimalcheck = false;
+				numbercheck = 0;
 			}
 			
 			else if(ev.getSource() == jbtsin){
@@ -398,6 +402,11 @@ class Calculator_GUI extends JFrame{
 					jlresult.setText(Value);
 					decimalcheck = true;
 				}
+				numbercheck = 0;
+				number = 0;
+				result = 0; 
+				number_decimal = 0;
+				result_decimal = 0;
 			}
 			
 			else if(ev.getSource() == jbtcos){
@@ -415,6 +424,11 @@ class Calculator_GUI extends JFrame{
 					jlresult.setText(Value);
 					decimalcheck = true;
 				}
+				numbercheck = 0;
+				number = 0;
+				result = 0; 
+				number_decimal = 0;
+				result_decimal = 0;
 			}
 			
 			else if(ev.getSource() == jbttan){
@@ -432,14 +446,24 @@ class Calculator_GUI extends JFrame{
 					jlresult.setText(Value);
 					decimalcheck = true;
 				}
+				numbercheck = 0;
+				number = 0;
+				result = 0; 
+				number_decimal = 0;
+				result_decimal = 0;
 			}
 			
 			else if(ev.getSource() == jbtdecimal){
 				while(decimalcheck == false){
-					number = Integer.parseInt(jlresult.getText());
-					jlresult.setText(number + ".");
+					numbercheck = Integer.parseInt(jlresult.getText());
+					jlresult.setText(numbercheck + ".");
 					decimalcheck = true;
 				}
+				numbercheck = 0;
+				number = 0;
+				result = 0; 
+				number_decimal = 0;
+				result_decimal = 0;
 			}
 			
 			else if(ev.getSource() == jbtroot){
@@ -453,8 +477,9 @@ class Calculator_GUI extends JFrame{
 				else{
 					number = Integer.parseInt(jlresult.getText());
 					result_decimal = Math.pow(number , 0.5);
+					result = (int)(result_decimal);
 					
-					if(result_decimal - (int)(result_decimal) == 0){
+					if(result_decimal - result == 0){
 						result = (int)(result_decimal);
 						String Value = new String(""+result_decimal);
 						jlresult.setText(Value);
@@ -466,6 +491,11 @@ class Calculator_GUI extends JFrame{
 						decimalcheck = true;
 					}
 				}
+				numbercheck = 0;
+				number = 0;
+				result = 0; 
+				number_decimal = 0;
+				result_decimal = 0;
 			}
 			
 			else if(ev.getSource() == jbtsquare){
@@ -484,66 +514,79 @@ class Calculator_GUI extends JFrame{
 					decimalcheck = false;
 				
 				}
+				numbercheck = 0;
+				number = 0;
+				result = 0; 
+				number_decimal = 0;
+				result_decimal = 0;
 			}	
 			
 			else if(ev.getSource() == jbtdelete){
+				numbercheck = 0;
 				number = 0;
 				result = 0; 
 				staticplus = 0;
 				decimalcheck = false;
+				number_decimal = 0;
+				result_decimal = 0;
 				jlresult.setText("0");
 			}
 			
 			else if(ev.getSource() == jbtcalculate){
 				result_decimal = Double.parseDouble(jlresult.getText());
+				result = (int)(result_decimal);
 				
-				if((result_decimal - (int)(result_decimal) == 0) && number_decimal == 0 ){
-					result = (int)(result_decimal);
+				if((result_decimal - result == 0) && (number_decimal == 0) ){
+					
 					switch(staticplus){
 						case 0:result = result;break;
-						case 1:result = result + number;break;
+						case 1:result = number + result;break;
 						case 2:result = number - result;break;
 						case 3:result = number * result;break;
 						case 4:result = number / result;
 					}
 					String Value = new String(""+result);
 					jlresult.setText(Value);
+					decimalcheck = false;
 				}
-				else if((result_decimal - (int)(result_decimal) != 0) && number == 0 ){
+				else if((result_decimal  - result > 0) && (number == 0) ){
 					switch(staticplus){
 						case 0:result_decimal = result_decimal;break;
-						case 1:result_decimal = result_decimal + number_decimal;break;
+						case 1:result_decimal = number_decimal + result_decimal;break;
 						case 2:result_decimal = number_decimal - result_decimal;break;
 						case 3:result_decimal = number_decimal * result_decimal;break;
 						case 4:result_decimal= number_decimal / result_decimal;
 					}
 					String Value = new String(""+result_decimal);
 					jlresult.setText(Value);
+					decimalcheck = true;
 				}
-				else if((result_decimal - (int)(result_decimal) != 0) && number_decimal == 0){
+				else if((result_decimal - result > 0) && (number_decimal == 0)){
 					switch(staticplus){
 						case 0:result_decimal = result_decimal;break;
-						case 1:result_decimal = result_decimal + number;break;
+						case 1:result_decimal = number + result_decimal;break;
 						case 2:result_decimal = number - result_decimal;break;
 						case 3:result_decimal = number * result_decimal;break;
 						case 4:result_decimal= number / result_decimal;
 					}
 					String Value = new String(""+result_decimal);
 					jlresult.setText(Value);
+					decimalcheck = true;
 				}
 				else{
 					switch(staticplus){
 						case 0:result_decimal = result_decimal;break;
-						case 1:result_decimal = result_decimal + number_decimal;break;
+						case 1:result_decimal = number_decimal + result_decimal;break;
 						case 2:result_decimal = number_decimal - result_decimal;break;
 						case 3:result_decimal = number_decimal * result_decimal;break;
 						case 4:result_decimal= number_decimal / result_decimal;
 					}
 					String Value = new String(""+result_decimal);
 					jlresult.setText(Value);
+					decimalcheck = true;
 				}
 				
-				
+				numbercheck = 0;
 				staticplus = 0;
 				number = 0;
 				result = 0; 
