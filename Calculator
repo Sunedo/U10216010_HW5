@@ -158,261 +158,397 @@ class Calculator_GUI extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent ev){
 			int staticplus = 0;
-			double number = 0;
-			double result = 0;
+			double number_decimal = 0;
+			double result_decimal = 0;
 			boolean decimalcheck = false;
 			int integernumber = 0;
-			
+			int number = 0;
+			int result = 0;
+			double numbercheck = 0;
 			
 			if(ev.getSource() == jbtplus){
-				number = Double.parseDouble(jlresult.getText());
-				staticplus = 1;
-				jlresult.setText("0");
+				if(decimalcheck == true){
+					number_decimal = Double.parseDouble(jlresult.getText());
+					staticplus = 1;
+					jlresult.setText("0");
+				}
+				else{
+					number = Integer.parseInt(jlresult.getText());
+					staticplus = 1;
+					jlresult.setText("0");
+				}
+				decimalcheck = false;
 			}			
 			
 			else if(ev.getSource() == jbtone){
-				number = Double.parseDouble(jlresult.getText());
+				numbercheck = Double.parseDouble(jlresult.getText());
 				
-				if(number == 0){
+				if(numbercheck == 0){
 					jlresult.setText("1");
 				}
 				else{
 					if(decimalcheck == true)
-						jlresult.setText(number + "1");
+						jlresult.setText(numbercheck + "1");
 					else {
-						integernumber = (int) (number);
+						integernumber = (int) (numbercheck);
 						jlresult.setText(integernumber + "1");
 					}
 				}
 			}
 			
 			else if(ev.getSource() == jbttwo){
-				number = Double.parseDouble(jlresult.getText());
+				numbercheck = Double.parseDouble(jlresult.getText());
 				
-				if(number == 0){
+				if(numbercheck == 0){
 					jlresult.setText("2");
 				}
 				else{
 					if(decimalcheck == true)
-						jlresult.setText(number + "2");
-					else{
-						integernumber = (int) (number);
+						jlresult.setText(numbercheck + "2");
+					else {
+						integernumber = (int) (numbercheck);
 						jlresult.setText(integernumber + "2");
 					}
 				}
 			}
 			
 			else if(ev.getSource() == jbtthree){
-				number = Double.parseDouble(jlresult.getText());
+				numbercheck = Double.parseDouble(jlresult.getText());
 				
-				if(number == 0){
+				if(numbercheck == 0){
 					jlresult.setText("3");
 				}
 				else{
 					if(decimalcheck == true)
-						jlresult.setText(number + "3");
-					else{
-						integernumber = (int) (number);
+						jlresult.setText(numbercheck + "3");
+					else {
+						integernumber = (int) (numbercheck);
 						jlresult.setText(integernumber + "3");
 					}
 				}
 			}
 			
 			else if(ev.getSource() == jbtfour){
-				number = Double.parseDouble(jlresult.getText());
+				numbercheck = Double.parseDouble(jlresult.getText());
 				
-				if(number == 0){
+				if(numbercheck == 0){
 					jlresult.setText("4");
 				}
 				else{
 					if(decimalcheck == true)
-						jlresult.setText(number + "4");
-					else{
-						integernumber = (int) (number);
+						jlresult.setText(numbercheck + "4");
+					else {
+						integernumber = (int) (numbercheck);
 						jlresult.setText(integernumber + "4");
 					}
 				}
 			}
 			
 			else if(ev.getSource() == jbtfive){
-				number = Double.parseDouble(jlresult.getText());
+				numbercheck = Double.parseDouble(jlresult.getText());
 				
-				if(number == 0){
+				if(numbercheck == 0){
 					jlresult.setText("5");
 				}
 				else{
 					if(decimalcheck == true)
-						jlresult.setText(number + "5");
-					else{
-						integernumber = (int) (number);
+						jlresult.setText(numbercheck + "5");
+					else {
+						integernumber = (int) (numbercheck);
 						jlresult.setText(integernumber + "5");
 					}
 				}
 			}
 			
 			else if(ev.getSource() == jbtsix){
-				number = Double.parseDouble(jlresult.getText());
+				numbercheck = Double.parseDouble(jlresult.getText());
 				
-				if(number == 0){
+				if(numbercheck == 0){
 					jlresult.setText("6");
 				}
 				else{
 					if(decimalcheck == true)
-						jlresult.setText(number + "6");
-					else{
-						integernumber = (int) (number);
+						jlresult.setText(numbercheck + "6");
+					else {
+						integernumber = (int) (numbercheck);
 						jlresult.setText(integernumber + "6");
 					}
-				}					
+				}				
 					
 			}
 			
 			else if(ev.getSource() == jbtseven){
-				number = Double.parseDouble(jlresult.getText());
+				numbercheck = Double.parseDouble(jlresult.getText());
 				
-				if(number == 0){
+				if(numbercheck == 0){
 					jlresult.setText("7");
 				}
 				else{
 					if(decimalcheck == true)
-						jlresult.setText(number + "7");
-					else{
-						integernumber = (int) (number);
+						jlresult.setText(numbercheck + "7");
+					else {
+						integernumber = (int) (numbercheck);
 						jlresult.setText(integernumber + "7");
 					}
 				}
 			}
 			
 			else if(ev.getSource() == jbteight){
-				number = Double.parseDouble(jlresult.getText());
+				numbercheck = Double.parseDouble(jlresult.getText());
 				
-				if(number == 0){
+				if(numbercheck == 0){
 					jlresult.setText("8");
 				}
 				else{
 					if(decimalcheck == true)
-						jlresult.setText(number + "8");
-					else{
-						integernumber = (int) (number);
+						jlresult.setText(numbercheck + "8");
+					else {
+						integernumber = (int) (numbercheck);
 						jlresult.setText(integernumber + "8");
 					}
 				}
 			}
 			
 			else if(ev.getSource() == jbtnine){
-				number = Double.parseDouble(jlresult.getText());
+				numbercheck = Double.parseDouble(jlresult.getText());
 				
-				if(number == 0){
+				if(numbercheck == 0){
 					jlresult.setText("9");
 				}
 				else{
 					if(decimalcheck == true)
-						jlresult.setText(number + "9");
-					else{
-						integernumber = (int) (number);
+						jlresult.setText(numbercheck + "9");
+					else {
+						integernumber = (int) (numbercheck);
 						jlresult.setText(integernumber + "9");
 					}
 				}
 			}
 			
 			else if(ev.getSource() == jbtzero){
-				number = Double.parseDouble(jlresult.getText());
+				numbercheck = Double.parseDouble(jlresult.getText());
 				
-				if(number == 0){
+				if(numbercheck == 0){
 					jlresult.setText("0");
 				}
 				else{
 					if(decimalcheck == true)
-						jlresult.setText(number + "0");
-					else{
-						integernumber = (int) (number);
+						jlresult.setText(numbercheck + "0");
+					else {
+						integernumber = (int) (numbercheck);
 						jlresult.setText(integernumber + "0");
 					}
 				}
 			}
 			
 			else if(ev.getSource() == jbtminus){
-				number = Double.parseDouble(jlresult.getText());
-				staticplus = 2;
-				jlresult.setText("0");
+				if(decimalcheck == true){
+					number_decimal = Double.parseDouble(jlresult.getText());
+					staticplus = 2;
+					jlresult.setText("0");
+				}
+				else{
+					number = Integer.parseInt(jlresult.getText());
+					staticplus = 2;
+					jlresult.setText("0");
+				}
+				decimalcheck = false;
 			}
 			
 			else if(ev.getSource() == jbttime){
-				number = Double.parseDouble(jlresult.getText());
-				staticplus = 3;
-				jlresult.setText("0");
+				if(decimalcheck == true){
+					number_decimal = Double.parseDouble(jlresult.getText());
+					staticplus = 3;
+					jlresult.setText("0");
+				}
+				else{
+					number = Integer.parseInt(jlresult.getText());
+					staticplus = 3;
+					jlresult.setText("0");
+				}
+				decimalcheck = false;
 			}
 			
 			else if(ev.getSource() == jbtdivide){
-				number = Double.parseDouble(jlresult.getText());
-				staticplus = 4;
-				jlresult.setText("0");
+				if(decimalcheck == true){
+					number_decimal = Double.parseDouble(jlresult.getText());
+					staticplus = 4;
+					jlresult.setText("0");
+				}
+				else{
+					number = Integer.parseInt(jlresult.getText());
+					staticplus = 4;
+					jlresult.setText("0");
+				}
+				decimalcheck = false;
 			}
 			
 			else if(ev.getSource() == jbtsin){
-				number = Double.parseDouble(jlresult.getText());
-				result = Math.sin(number);
-				String Value = new String(""+result);
-				jlresult.setText(Value);
+				if(decimalcheck == true){
+					number_decimal = Double.parseDouble(jlresult.getText());
+					result_decimal = Math.sin(number);
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+					decimalcheck = true;
+				}
+				else{
+					number = Integer.parseInt(jlresult.getText());
+					result_decimal = Math.sin(number);
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+					decimalcheck = true;
+				}
 			}
 			
 			else if(ev.getSource() == jbtcos){
-				number = Double.parseDouble(jlresult.getText());
-				result = Math.cos(number);
-				String Value = new String(""+result);
-				jlresult.setText(Value);
+				if(decimalcheck == true){
+					number_decimal = Double.parseDouble(jlresult.getText());
+					result_decimal = Math.cos(number);
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+					decimalcheck = true;
+				}
+				else{
+					number = Integer.parseInt(jlresult.getText());
+					result_decimal = Math.cos(number);
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+					decimalcheck = true;
+				}
 			}
 			
 			else if(ev.getSource() == jbttan){
-				number = Double.parseDouble(jlresult.getText());
-				result = Math.tan(number);
-				String Value = new String(""+result);
-				jlresult.setText(Value);
+				if(decimalcheck == true){
+					number_decimal = Double.parseDouble(jlresult.getText());
+					result_decimal = Math.tan(number);
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+					decimalcheck = true;
+				}
+				else{
+					number = Integer.parseInt(jlresult.getText());
+					result_decimal = Math.tan(number);
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+					decimalcheck = true;
+				}
 			}
 			
 			else if(ev.getSource() == jbtdecimal){
 				while(decimalcheck == false){
-					number = Double.parseDouble(jlresult.getText());
+					number = Integer.parseInt(jlresult.getText());
 					jlresult.setText(number + ".");
 					decimalcheck = true;
 				}
 			}
 			
 			else if(ev.getSource() == jbtroot){
-				number = Double.parseDouble(jlresult.getText());
-				result = Math.sqrt(number);
-				String Value = new String(""+result);
-				jlresult.setText(Value);
+				if(decimalcheck == true){
+					number_decimal = Double.parseDouble(jlresult.getText());
+					result_decimal = Math.pow(number , 0.5);
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+					decimalcheck = true;
+				}
+				else{
+					number = Integer.parseInt(jlresult.getText());
+					result_decimal = Math.pow(number , 0.5);
+					
+					if(result_decimal - (int)(result_decimal) == 0){
+						result = (int)(result_decimal);
+						String Value = new String(""+result_decimal);
+						jlresult.setText(Value);
+						decimalcheck = false;
+					}
+					else{
+						String Value = new String(""+result_decimal);
+						jlresult.setText(Value);
+						decimalcheck = true;
+					}
+				}
 			}
 			
 			else if(ev.getSource() == jbtsquare){
-				number = Double.parseDouble(jlresult.getText());
-				result = Math.pow(number , 2 );
-				String Value = new String(""+result);
-				jlresult.setText(Value);
+				if(decimalcheck == true){
+					number_decimal = Double.parseDouble(jlresult.getText());
+					result_decimal = Math.pow(number , 2);
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+					decimalcheck = true;
+				}
+				else{
+					number = Integer.parseInt(jlresult.getText());
+					result = (int)(Math.pow(number , 2));
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+					decimalcheck = false;
+				
+				}
 			}	
 			
 			else if(ev.getSource() == jbtdelete){
 				number = 0;
 				result = 0; 
 				staticplus = 0;
+				decimalcheck = false;
 				jlresult.setText("0");
 			}
 			
 			else if(ev.getSource() == jbtcalculate){
-				result = Double.parseDouble(jlresult.getText());
-				switch(staticplus){
-					case 0:result = result;break;
-					case 1:result = result + number;break;
-					case 2:result = number - result;break;
-					case 3:result = number * result;break;
-					case 4:result = number / result;
+				result_decimal = Double.parseDouble(jlresult.getText());
+				
+				if((result_decimal - (int)(result_decimal) == 0) && number_decimal == 0 ){
+					result = (int)(result_decimal);
+					switch(staticplus){
+						case 0:result = result;break;
+						case 1:result = result + number;break;
+						case 2:result = number - result;break;
+						case 3:result = number * result;break;
+						case 4:result = number / result;
+					}
+					String Value = new String(""+result);
+					jlresult.setText(Value);
 				}
-				String Value = new String(""+result);
-				jlresult.setText(Value);
+				else if((result_decimal - (int)(result_decimal) != 0) && number == 0 ){
+					switch(staticplus){
+						case 0:result_decimal = result_decimal;break;
+						case 1:result_decimal = result_decimal + number_decimal;break;
+						case 2:result_decimal = number_decimal - result_decimal;break;
+						case 3:result_decimal = number_decimal * result_decimal;break;
+						case 4:result_decimal= number_decimal / result_decimal;
+					}
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+				}
+				else if((result_decimal - (int)(result_decimal) != 0) && number_decimal == 0){
+					switch(staticplus){
+						case 0:result_decimal = result_decimal;break;
+						case 1:result_decimal = result_decimal + number;break;
+						case 2:result_decimal = number - result_decimal;break;
+						case 3:result_decimal = number * result_decimal;break;
+						case 4:result_decimal= number / result_decimal;
+					}
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+				}
+				else{
+					switch(staticplus){
+						case 0:result_decimal = result_decimal;break;
+						case 1:result_decimal = result_decimal + number_decimal;break;
+						case 2:result_decimal = number_decimal - result_decimal;break;
+						case 3:result_decimal = number_decimal * result_decimal;break;
+						case 4:result_decimal= number_decimal / result_decimal;
+					}
+					String Value = new String(""+result_decimal);
+					jlresult.setText(Value);
+				}
+				
+				
 				staticplus = 0;
 				number = 0;
 				result = 0; 
+				number_decimal = 0;
+				result_decimal = 0;
 			}
 		
 		}
